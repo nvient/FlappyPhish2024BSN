@@ -327,12 +327,15 @@ Test your skills with a game of <em>Flappy Phish</em>, then read the important s
     </main>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        // Select all sections
         const sections = document.querySelectorAll("section");
 
+        // Exclude the game-section from animation
         const sectionsToAnimate = [...sections].filter(
             (section) => !section.classList.contains("game-section")
         );
 
+        // Create an IntersectionObserver
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -341,6 +344,7 @@ Test your skills with a game of <em>Flappy Phish</em>, then read the important s
             });
         });
 
+        // Observe only sectionsToAnimate
         sectionsToAnimate.forEach((section) => {
             observer.observe(section);
         });
