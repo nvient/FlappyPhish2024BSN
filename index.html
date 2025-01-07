@@ -329,6 +329,10 @@ Test your skills with a game of <em>Flappy Phish</em>, then read the important s
         document.addEventListener("DOMContentLoaded", () => {
             const sections = document.querySelectorAll("section");
 
+	const sectionsToAnimate = [...sections].filter(
+            (section) => !section.classList.contains("game-section")
+        );
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
